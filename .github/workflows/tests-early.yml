@@ -1,0 +1,30 @@
+name: Ejecutar Tests y Actualizar Early
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-and-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
+
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Ejecutar los tests del proyecto
+        run: mvn test
+
+      - name: Actualizar la rama early
+        run: |
+          git push origin HEAD:refs/heads/early
