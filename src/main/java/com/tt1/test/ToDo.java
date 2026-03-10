@@ -2,11 +2,7 @@ package com.tt1.test;
 
 import java.time.LocalDate;
 
-/**
- * Representa una tarea individual dentro del sistema.
- * Contiene la información fundamental de la tarea, como su nombre, descripción,
- * fecha límite y su estado actual (completada o no).
- */
+/** Clase que representa una tarea del sistema. */
 public class ToDo {
     private String nombre;
     private String descripcion;
@@ -14,11 +10,10 @@ public class ToDo {
     private boolean completada;
 
     /**
-     * Construye una nueva tarea.
-     * Al crearse, la tarea se marca automáticamente como no completada.
-     * * @param nombre      El nombre corto o título de la tarea.
-     * @param descripcion Los detalles extendidos de la tarea.
-     * @param fechaLimite La fecha máxima en la que debe completarse.
+     * Constructor de la tarea.
+     * @param nombre Nombre de la tarea.
+     * @param descripcion Detalle de la misma.
+     * @param fechaLimite Fecha de vencimiento.
      */
     public ToDo(String nombre, String descripcion, LocalDate fechaLimite) {
         this.nombre = nombre;
@@ -27,10 +22,6 @@ public class ToDo {
         this.completada = false;
     }
 
-    /**
-     * Obtiene el nombre de la tarea.
-     * @return El nombre actual de la tarea.
-     */
     public String getNombre() {
         return nombre;
     }
@@ -39,10 +30,6 @@ public class ToDo {
         this.nombre = nombre;
     }
 
-    /**
-     * Obtiene la descripción de la tarea.
-     * @return La descripción actual.
-     */
     public String getDescripcion() {
         return descripcion;
     }
@@ -51,10 +38,6 @@ public class ToDo {
         this.descripcion = descripcion;
     }
 
-    /**
-     * Obtiene la fecha límite establecida para la tarea.
-     * @return La fecha límite.
-     */
     public LocalDate getFechaLimite() {
         return fechaLimite;
     }
@@ -63,18 +46,10 @@ public class ToDo {
         this.fechaLimite = fechaLimite;
     }
 
-    /**
-     * Comprueba si la tarea ha sido finalizada.
-     * @return true si está completada, false en caso contrario.
-     */
     public boolean isCompletada() {
         return completada;
     }
 
-    /**
-     * Actualiza el estado de completitud de la tarea.
-     * @param completada El nuevo estado (true para completada, false para pendiente).
-     */
     public void setCompletada(boolean completada) {
         this.completada = completada;
     }

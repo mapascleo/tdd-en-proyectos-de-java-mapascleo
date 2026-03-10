@@ -2,15 +2,11 @@ package com.tt1.test;
 
 import java.time.LocalDate;
 
-/**
- * Clase principal que arranca la aplicación de consola.
- * Sirve como demostración del funcionamiento del Servicio de Tareas.
- */
+/** Clase principal que arranca el programa. */
 public class App {
-    
     /**
-     * Punto de entrada principal del programa.
-     * * @param args Argumentos pasados por línea de comandos (no utilizados).
+     * Método principal.
+     * @param args Argumentos de consola.
      */
     public static void main(String[] args) {
         DBStub db = new DBStub();
