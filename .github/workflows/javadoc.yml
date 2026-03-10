@@ -1,0 +1,33 @@
+name: Publicar Javadoc en GitHub Pages
+
+on:
+  push:
+    branches:
+      - stable
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v3
+
+      - name: Configurar Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11' 
+          distribution: 'temurin'
+
+      - name: Generar la documentación Javadoc
+        run: |
+          mkdir docs
+          javadoc -d docs -sourcepath src/main/java -subpackages com.tt1
+
+      - name: Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs 
